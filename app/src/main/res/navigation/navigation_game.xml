@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_game"
+    app:startDestination="@id/inGameFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.ubaya.adv160419077week2.MainFragment"
+        android:label="Main Screen"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/actionGameFragment"
+            app:destination="@id/gameFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.ubaya.adv160419077week2.GameFragment"
+        android:label="Game Screen"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/actionMainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <argument
+            android:name="playerName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/inGameFragment"
+        android:name="com.ubaya.adv160419077week2.InGameFragment"
+        android:label="fragment_in_game"
+        tools:layout="@layout/fragment_in_game" >
+        <action
+            android:id="@+id/actionResultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.ubaya.adv160419077week2.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/actionInGameFragment"
+            app:destination="@id/inGameFragment" />
+        <argument
+            android:name="point"
+            app:argType="integer" />
+    </fragment>
+</navigation>
